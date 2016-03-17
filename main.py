@@ -136,10 +136,10 @@ class ItEbooks(CustomUtils):
                                      path_title
                                      )
         prop['save_path'] = os.path.join(book_base_dir,
-                                         file_name + file_ext_cover
+                                         file_name + "." + prop['format']
                                          )
         prop['save_path_cover'] = os.path.join(book_base_dir,
-                                               file_name + "." + prop['format']
+                                               file_name + file_ext_cover
                                                )
 
         prop['rel_path'] = prop['save_path'].replace(self._base_dir, "")
