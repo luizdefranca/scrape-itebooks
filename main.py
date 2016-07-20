@@ -66,7 +66,7 @@ class ItEbooks(CustomUtils):
         """
         self.cprint("##\tGetting newest upload id...\n")
 
-        url = "http://it-ebooks.info/"
+        url = "http://www.allitebooks.com/"
         # get the html from the url
         try:
             soup = self.get_site(url, self._url_header)
@@ -87,7 +87,7 @@ class ItEbooks(CustomUtils):
         prop = {}
         prop['id'] = str(id_)
 
-        url = "http://it-ebooks.info/book/" + prop['id']
+        url = "http://www.allitebooks.com" + prop['id']
         # get the html from the url
         try:
             soup = self.get_site(url, self._url_header)
@@ -102,7 +102,7 @@ class ItEbooks(CustomUtils):
             return False
 
         # Find data
-        prop['cover_img'] = "http://it-ebooks.info" + soup.find("img", {"itemprop": "image"})['src'].strip()
+        prop['cover_img'] = "http://www.allitebooks.com" + soup.find("img", {"itemprop": "image"})['src'].strip()
         prop['title'] = soup.find("h1", {"itemprop": "name"}).getText().strip()
         prop['description'] = soup.find("span", {"itemprop": "description"}).getText().strip()
         prop['publisher'] = soup.find(attrs={"itemprop": "publisher"}).getText().strip()
